@@ -1,43 +1,52 @@
 <template>
+    <!-- <view class="motion animation-fade"> -->
+    <!-- 顶部 -->
+    <!--  <cu-custom bgColor="bg-white" :isBack="false">
+            <block slot="backText"></block>
+            <block slot="content">{{companyName}}</block>
+        </cu-custom> -->
     <view class="tabs">
         <scroll-view id="tab-bar" class="scroll-h" :scroll-x="true" :show-scrollbar="false" :scroll-into-view="scrollInto">
-            <view v-for="(tab,index) in tabBars" :key="tab.id" class="uni-tab-item" :id="tab.id" :data-current="index" @click="ontabtap">
+            <view v-for="(tab,index) in tabBars" :key="tab.id" class="uni-tab-item" :id="tab.id" :data-current="index"
+                @click="ontabtap">
                 <text class="uni-tab-item-title" :class="tabIndex==index ? 'uni-tab-item-title-active' : ''">{{tab.name}}</text>
             </view>
         </scroll-view>
         <view class="line-h"></view>
         <swiper :current="tabIndex" class="swiper-box" style="flex: 1;" :duration="300" @change="ontabchange">
             <swiper-item class="swiper-item" v-for="(tab,index1) in newsList" :key="index1">
-				<!-- #ifdef APP-NVUE -->
-				<list class="scroll-v list" enableBackToTop="true" scroll-y loadmoreoffset="15" @loadmore="loadMore(index1)">
-					<refresh class="refresh" @refresh="onrefresh(index1)" @pullingdown="onpullingdown" :display="tab.refreshing ? 'show' : 'hide'">
-						<div class="refresh-view">
-							<image class="refresh-icon" :src="refreshIcon" :style="{width: (tab.refreshing || pulling) ? 0: '30px'}" :class="{'refresh-icon-active': tab.refreshFlag}"></image>
-							<loading-indicator class="loading-icon" animating="true" v-if="tab.refreshing"></loading-indicator>
-							<text class="loading-text">{{tab.refreshText}}</text>
-						</div>
-					</refresh>
-					<cell v-for="(newsitem,index2) in tab.data" :key="newsitem.id">
-						<media-item :options="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></media-item>
-					</cell>
-					<cell class="loading-more" v-if="tab.isLoading || tab.data.length > 4">
-						<text class="loading-more-text">{{tab.loadingText}}</text>
-					</cell>
-				</list>
-				<!-- #endif -->
-				<!-- #ifndef APP-NVUE -->
-				<scroll-view class="scroll-v list" enableBackToTop="true" scroll-y @scrolltolower="loadMore(index1)">
-					<view v-for="(newsitem,index2) in tab.data" :key="newsitem.id">
-						<media-item :options="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></media-item>
-					</view>
-					<view class="loading-more" v-if="tab.isLoading || tab.data.length > 4">
-						<text class="loading-more-text">{{tab.loadingText}}</text>
-					</view>
-				</scroll-view>
-				<!-- #endif -->
+                <!-- #ifdef APP-NVUE -->
+                <list class="scroll-v list" enableBackToTop="true" scroll-y loadmoreoffset="15" @loadmore="loadMore(index1)">
+                    <refresh class="refresh" @refresh="onrefresh(index1)" @pullingdown="onpullingdown" :display="tab.refreshing ? 'show' : 'hide'">
+                        <div class="refresh-view">
+                            <image class="refresh-icon" :src="refreshIcon" :style="{width: (tab.refreshing || pulling) ? 0: '30px'}"
+                                :class="{'refresh-icon-active': tab.refreshFlag}"></image>
+                            <loading-indicator class="loading-icon" animating="true" v-if="tab.refreshing"></loading-indicator>
+                            <text class="loading-text">{{tab.refreshText}}</text>
+                        </div>
+                    </refresh>
+                    <cell v-for="(newsitem,index2) in tab.data" :key="newsitem.id">
+                        <media-item :options="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></media-item>
+                    </cell>
+                    <cell class="loading-more" v-if="tab.isLoading || tab.data.length > 4">
+                        <text class="loading-more-text">{{tab.loadingText}}</text>
+                    </cell>
+                </list>
+                <!-- #endif -->
+                <!-- #ifndef APP-NVUE -->
+                <scroll-view class="scroll-v list" enableBackToTop="true" scroll-y @scrolltolower="loadMore(index1)">
+                    <view v-for="(newsitem,index2) in tab.data" :key="newsitem.id">
+                        <media-item :options="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></media-item>
+                    </view>
+                    <view class="loading-more" v-if="tab.isLoading || tab.data.length > 4">
+                        <text class="loading-more-text">{{tab.loadingText}}</text>
+                    </view>
+                </scroll-view>
+                <!-- #endif -->
             </swiper-item>
         </swiper>
     </view>
+    <!-- </view> -->
 </template>
 <script>
     import mediaItem from './news-item.nvue';
@@ -142,21 +151,23 @@
                 showTips: false,
                 navigateFlag: false,
                 pulling: false,
-                refreshIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5QTFRFcHBw3Nzct7e39vb2ycnJioqK7e3tpqam29vb////D8oK7wAAAAp0Uk5T////////////ALLMLM8AAABxSURBVHja7JVBDoAgDASrjqj//7CJBi90iyYeOHTPMwmFZrHjYyyFYYUy1bwUZqtJIYVxhf1a6u0R7iUvWsCcrEtwJHp8MwMdvh2amHduiZD3rpWId9+BgPd7Cc2LIkPyqvlQvKxKBJ//Qwq/CacAAwDUv0a0YuKhzgAAAABJRU5ErkJggg=="
+                refreshIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5QTFRFcHBw3Nzct7e39vb2ycnJioqK7e3tpqam29vb////D8oK7wAAAAp0Uk5T////////////ALLMLM8AAABxSURBVHja7JVBDoAgDASrjqj//7CJBi90iyYeOHTPMwmFZrHjYyyFYYUy1bwUZqtJIYVxhf1a6u0R7iUvWsCcrEtwJHp8MwMdvh2amHduiZD3rpWId9+BgPd7Cc2LIkPyqvlQvKxKBJ//Qwq/CacAAwDUv0a0YuKhzgAAAABJRU5ErkJggg==",
+                companyName: ""
             }
         },
         onLoad() {
-            setTimeout(()=>{
-              this.tabBars.forEach((tabBar) => {
-                  this.newsList.push({
-                      data: [],
-                      isLoading: false,
-                      refreshText: "",
-                      loadingText: '加载更多...'
-                  });
-              });
-              this.getList(0);
-            },350)
+            this.companyName=this.$store.getters.getUserData.companyName
+            setTimeout(() => {
+                this.tabBars.forEach((tabBar) => {
+                    this.newsList.push({
+                        data: [],
+                        isLoading: false,
+                        refreshText: "",
+                        loadingText: '加载更多...'
+                    });
+                });
+                this.getList(0);
+            }, 350)
         },
         methods: {
             getList(index) {
@@ -250,7 +261,7 @@
                     this.refreshData();
                     this.pulling = true;
                     tab.refreshing = false;
-					tab.refreshFlag = false;
+                    tab.refreshFlag = false;
                     tab.refreshText = "已刷新";
                     setTimeout(() => { // TODO fix ios和Android 动画时间相反问题
                         this.pulling = false;
@@ -390,25 +401,25 @@
         justify-content: center;
     }
 
-	.refresh-icon {
-		width: 30px;
-		height: 30px;
-		transition-duration: .5s;
-		transition-property: transform;
-		transform: rotate(0deg);
-		transform-origin: 15px 15px;
-	}
+    .refresh-icon {
+        width: 30px;
+        height: 30px;
+        transition-duration: .5s;
+        transition-property: transform;
+        transform: rotate(0deg);
+        transform-origin: 15px 15px;
+    }
 
-	.refresh-icon-active {
-		transform: rotate(180deg);
-	}
+    .refresh-icon-active {
+        transform: rotate(180deg);
+    }
 
-	.loading-icon {
-		width: 20px;
-		height: 20px;
-		margin-right: 5px;
-		color: #999999;
-	}
+    .loading-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        color: #999999;
+    }
 
     .loading-text {
         margin-left: 2px;

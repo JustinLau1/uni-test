@@ -37,7 +37,7 @@
 				</view>
 			</view> -->
 
-			<!-- 底部信息 -->
+            <!-- 底部信息 -->
             <!-- <view class="footer">
                 <navigator url="forget" open-type="navigate">找回密码</navigator>
                 <text>|</text>
@@ -181,21 +181,64 @@
                         // userPassword: md5("123456"),
                         loginType: 1
                     }).then(res => {
-                        console.log(res)
+                        // console.log(res)
                         _this.isRotate = false
                         uni.hideLoading();
                         // console.log("哈哈哈1" + _this.showAgree)
                         // if (_this.phoneData == res.data.username && _this.passData == res.data.password) {
                         var userdata
                         if (_this.showAgree == true) {
+                            var data = res.data.data
                             userdata = {
-                                "userCode": res.data.data.newUserCode,
+                                "userCode": data.newUserCode,
                                 "userpwd": _this.passData,
+                                "token": data.token,
+                                "newUserCode": data.newUserCode,
+                                "userShortCode": data.userShortCode,
+                                "userName": data.userName,
+                                "userStatus": data.userStatus,
+                                "userWechatId": data.userWechatId,
+                                "userAttribute": data.userAttribute,
+                                "adminCode": data.adminCode,
+                                "companyType": data.companyType,
+                                "subsidiaryCode": data.subsidiaryCode,
+                                "subsidiaryName": data.subsidiaryName,
+                                "subsidiaryShort": data.subsidiaryShort,
+                                "companyCode": data.companyCode,
+                                "companyLogo": data.companyLogo,
+                                "companyName": data.companyName,
+                                "companyAddr": data.companyAddr,
+                                "companyWebsite": data.companyWebsite,
+                                "companyAttribute": data.companyAttribute,
+                                "loginPlatform": data.loginPlatform,
+                                "roleStr": data.roleStr,
+                                "roles": data.roles
                             }
                         } else {
                             userdata = {
                                 "userCode": "",
-                                "userpwd": ""
+                                "userpwd": "",
+                                "token": "",
+                                "newUserCode": "",
+                                "userShortCode": "",
+                                "userName": "",
+                                "userStatus": "",
+                                "userWechatId": "",
+                                "userAttribute": "",
+                                "adminCode": "",
+                                "companyType": "",
+                                "subsidiaryCode": "",
+                                "subsidiaryName": "",
+                                "subsidiaryShort": "",
+                                "companyCode": "",
+                                "companyLogo": "",
+                                "companyName": "",
+                                "companyAddr": "",
+                                "companyWebsite": "",
+                                "companyAttribute": "",
+                                "loginPlatform": "",
+                                "roleStr": "",
+                                "roles": ""
                             }
                         }
 
@@ -225,7 +268,16 @@
                         // uni.hideToast()
 
                         uni.reLaunch({
-                            url: '../../mine/mine',
+                            // url: '../../case/case_list_car'
+                            // url: '../../case/case_f'
+                            url: '../../case/case_tabs',
+                            // url: '../../case/index',
+                            // url: '../../case/tab_t',
+                            // url: '../../case/case_t'
+                            // url: '../../case/tab_test'
+                            // url:'../../case/tabbar'
+                            // url: '../../case/tabbar'
+                            // url: '../../mine/mine',
                         });
 
                         // } else {

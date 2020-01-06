@@ -2,14 +2,14 @@
     <view class="mine animation-fade">
         <!-- 顶部 -->
         <!-- <cu-custom bgImage="linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.6))" :isBack="false" :isShadown="false">
-			<block slot="backText"></block>
-			<block slot="content">我的</block>
-		</cu-custom> -->
+            <block slot="backText"></block>
+            <block slot="content">我的</block>
+        </cu-custom> -->
 
         <view class="logo flexlogo" @click="goLogin" :hover-class="!login ? 'logo-hover' : ''">
             <image class="logo-img" :src="login ? avatarUrl :avatarUrl"></image>
             <view class="logo-title flexlogo">
-                <text class="uer-name ">Hi，{{login ? uerInfo.nickname : '您未登录'}}</text>
+                <text class="uer-name ">Hi，{{login ? uerInfo.userName : '您未登录'}}</text>
                 <text class="go-login navigat-arrow" v-if="!login">
                     <text class="cuIcon-right"></text>
                 </text>
@@ -37,7 +37,7 @@
                     <text class="text-grey">检测更新</text>
                 </view>
                 <view class="action">
-                    v{{ version }}
+                    v{{ versionName }}
                 </view>
 
             </view>
@@ -125,6 +125,7 @@
                 uerInfo: "", //用户信息
                 versionShow: false, //新版本下载弹出
                 version: "", //版本号
+                versionName: "", //版本号
                 vDownUrl: "", //最新版下载地址
                 loginOutShow: false, //登录退出确认框
             }
@@ -142,6 +143,7 @@
                 console.log(inf)
                 // _this.version = inf.version //赋值版本号
                 _this.version = inf.versionCode //赋值版本号
+                _this.versionName = inf.version
                 //console.log("当前应用版本："+inf.version);
             });
             //#endif
@@ -194,20 +196,46 @@
                 uni.showLoading({
                     title: '检测更新...'
                 });
+                uni.showLoading({
+                    // tittle: '登录中'
+                });
+                // var _this = this
+                // this.$api.getCaseList({
+                //     pageNum: 0,
+                //     pageSize: 10,
+                //     tableType: "NEED_CASE_TABLE",
+                //     state: 3
+                // }).then(res => {
+                //     uni.hideLoading();
+                //     var data = res.data.data
+                //     console.log(data)
+                //     // let activeTab = this.newsList[index];
+                //     // activeTab.data = data.list
+                // }).catch(res => {
+                //     // uni.hideLoading();
+                //     //失败操作
+                //     // console.log(res)
+                //     // console.log("请求失败")
+                //     // uni.showToast({
+                //     //     title: res.data.msg,
+                //     //     icon: 'none'
+                //     // })
+                // })
                 _this.$api.checkVersion({
                     versionNum: _this.version,
                     // versionNum: 6,
                     versionType: "ANDROID"
                 }).then(res => {
-                    console.log("哈哈哈")
-                    console.log(res)
-                    console.log(_this.version)
-                    console.log(res.data.result.versionNum)
-                    console.log(res.data.result.versionUrl)
+                    // console.log("哈哈哈")
+                    // console.log(res)
+                    // console.log(_this.version)
+                    // console.log(res.data.result.versionNum)
+                    // console.log(res.data.result.versionUrl)
                     uni.hideLoading();
+                    console.log(_this.version)
                     // var result = res.result
-                    // if (_this.version < res.data.result.versionNum) {
-                    if (6 < res.data.result.versionNum) {
+                    if (_this.version < res.data.result.versionNum) {
+                        // if (6 < res.data.result.versionNum) {
                         _this.vDownUrl = res.data.result.versionUrl //赋值下载地址
                         _this.versionShow = true //弹窗
                         uni.showToast({
@@ -263,6 +291,7 @@
                 //下载更新包 整包下载（浪费 不推荐）
                 console.log(_this.vDownUrl)
                 var wgtUrl = _this.vDownUrl;
+                wgtUrl="https:\/\/www.gongguyi.com\/assets\/guyi\/upload\/app\/e6a47d1e68d4f69f51a4064f44eb1e4e428235887.apk"
 
                 var downToak = plus.downloader.createDownload(wgtUrl, {
                     filename: "_doc/update/"

@@ -9,6 +9,10 @@ import request from './common/request.js'
 import url from './common/config.js'
 import api from './api/index.js'
 
+//顶部导航
+import cuCustom from './lib/colorui/components/cu-custom.vue'
+Vue.component('cu-custom',cuCustom)
+
 Vue.config.productionTip = false
 
 Vue.prototype.$request = request

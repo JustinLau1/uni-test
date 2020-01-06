@@ -3,17 +3,17 @@ import Vuex from 'vuex'
 
 //modules
 import LoginModule from './Login/LoginModule.js' //登陆
+import requestAPI from '../api/index.js' //登陆
 
 // import homeModule from './module/home/homeModule.js' //首页
 // import motionModule from './module/motion/motionModule.js' //运动
 
 Vue.use(Vuex)
-
 export default new Vuex.Store({
     state: {},
     modules: {
-        login: LoginModule
-        // ,
+        login: LoginModule,
+        requestAPI: requestAPI
         // home: homeModule,
         // motion: motionModule,
     }

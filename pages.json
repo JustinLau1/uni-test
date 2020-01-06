@@ -30,10 +30,108 @@
             }
         },
         {
+            //案件
+            "path": "pages/case/tabbar",
+            "style": {
+                "navigationBarTitleText": "案件",
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            //案件
+            "path": "pages/case/tab_t",
+            "style": {
+                "navigationBarTitleText": "案件",
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        // {
+        //     //案件
+        //     "path": "pages/case/case_tabs",
+        //     "style": {
+        //         "navigationBarTitleText": "案件",
+        //         // "titleImage": "https://img-cdn-qiniu.dcloud.net.cn/static/images/logo1@2x.png"
+        //         // ,
+        //         "navigationStyle": "custom",
+        //         "app-plus": {
+        //             "titleNView": false
+        //         }
+        //     }
+        // },
+        {
+            //案件
+            "path": "pages/case/case_tabs",
+            "style": {
+                "navigationBarTitleText": "案件",
+                // "titleImage": "https://img-cdn-qiniu.dcloud.net.cn/static/images/logo1@2x.png"
+                // ,
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            //案件
+            "path": "pages/case/index",
+            "style": {
+                "navigationBarTitleText": "案件",
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        },
+        {
+            //案件
+            "path": "pages/case/tab_test",
+            "style": {
+                "navigationBarTitleText": "案件",
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        }, {
+            //案件
+            "path": "pages/case/case_t",
+            "style": {
+                "navigationBarTitleText": "案件",
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": false
+                }
+            }
+        }, {
+            //案件
+            "path": "pages/case/case_list_car",
+            "style": {
+                "navigationBarTitleText": "案件",
+                "enablePullDownRefresh": true,
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": true
+                }
+            }
+        },
+        {
             //登陆
             "path": "pages/mine/children/forget",
+            // "style": {
+            //     "navigationBarTitleText": "重置密码"
+            // }
             "style": {
-                "navigationBarTitleText": "重置密码"
+                "navigationBarTitleText": "登录",
+                "navigationStyle": "custom",
+                "app-plus": {
+                    "titleNView": false
+                }
             }
         },
         {
@@ -116,27 +214,46 @@
         "borderStyle": "black",
         "backgroundColor": "#F8F8F8",
         "list": [{
-                "pagePath": "pages/tabBar/component/component",
+                // "pagePath": "pages/case/tabbar",
+                // "pagePath": "pages/case/tab_t",
+                // "pagePath": "pages/case/case_t",
+                // "pagePath": "pages/case/index",
+                // "pagePath": "pages/case/tab_test",
+                "pagePath": "pages/case/case_tabs",
+                // "pagePath": "pages/case/case_f",
+                // "pagePath": "pages/case/case_list_car",
                 "iconPath": "static/component.png",
                 "selectedIconPath": "static/componentHL.png",
-                "text": "内置组件"
+                "text": "案件"
             },
             {
-                "pagePath": "pages/tabBar/API/API",
+                "pagePath": "pages/mine/mine",
                 "iconPath": "static/api.png",
                 "selectedIconPath": "static/apiHL.png",
-                "text": "接口"
-            }, {
-                "pagePath": "pages/tabBar/extUI/extUI",
-                "iconPath": "static/extui.png",
-                "selectedIconPath": "static/extuiHL.png",
-                "text": "扩展组件"
-            }, {
-                "pagePath": "pages/tabBar/template/template",
-                "iconPath": "static/template.png",
-                "selectedIconPath": "static/templateHL.png",
-                "text": "模板"
+                "text": "我的"
             }
+            // {
+            //     "pagePath": "pages/tabBar/component/component",
+            //     "iconPath": "static/component.png",
+            //     "selectedIconPath": "static/componentHL.png",
+            //     "text": "内置组件"
+            // },
+            // {
+            //     "pagePath": "pages/tabBar/API/API",
+            //     "iconPath": "static/api.png",
+            //     "selectedIconPath": "static/apiHL.png",
+            //     "text": "接口"
+            // }, {
+            //     "pagePath": "pages/tabBar/extUI/extUI",
+            //     "iconPath": "static/extui.png",
+            //     "selectedIconPath": "static/extuiHL.png",
+            //     "text": "扩展组件"
+            // }, {
+            //     "pagePath": "pages/tabBar/template/template",
+            //     "iconPath": "static/template.png",
+            //     "selectedIconPath": "static/templateHL.png",
+            //     "text": "模板"
+            // }
         ]
     },
     //小程序专用分包加载配置5+APP始终为整包，微信百度每个分2M，总共不得超过8M，支付宝每个2M，总共4M
