@@ -1,0 +1,43 @@
+<template>
+    <view>
+        <view class="uni-padding-wrap uni-common-mt">
+            <view class="uni-title uni-common-mt">
+                flex-direction: row
+                <text class="text">\n横向布局</text>
+            </view>
+            <view class="uni-flex uni-row">
+                <view class="flex-item">案件编号：{{options.caseOurNumber}}</view>
+                <view class="flex-item text">待处理</view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<script>
+    export default {
+        props: {
+            options: {
+                type: Object,
+                default: function(e) {
+                    return {}
+                }
+            }
+        },
+        methods: {
+            click() {
+                this.$emit('click');
+            },
+            close(e) {
+                this.$emit('close');
+            }
+        }
+    }
+</script>
+
+<style>
+    .text {
+        margin-left: 2px;
+        font-size: 16px;
+        color: #FF3333;
+    }
+</style>

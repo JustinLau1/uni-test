@@ -125,7 +125,7 @@
 </style>
  -->
 <style lang="scss">
-	// @import './common/uni.css';
+    // @import './common/uni.css';
     /*每个页面公共css */
     @import url("./style/animation/animation.css");
     /* 动画 */
@@ -157,10 +157,23 @@
         box-shadow: 0 0 36px 0 rgba(43, 86, 112, .1) !important;
     }
 
-	page {
-	    background-color: #F4F5F6;
-	    height: 100%;
-	    font-size: 28upx;
-	    line-height: 1.8;
-	}
+    page,
+    view {
+        display: flex;
+    }
+
+
+    page {
+        display: flex;
+        background-color: #F4F5F6;
+        height: 100%;
+        font-size: 28upx;
+        line-height: 1.8;
+    }
+
+
+    template {
+        display: flex;
+        flex: 1;
+    }
 </style>
